@@ -1,0 +1,30 @@
+Create a hybrid polyphonic virtual instrument called "Amorph – Lipp Ghost Tribute" inspired by a warm vintage German grand piano (Richard Lipp style: rich spruce board resonance, soft felt hammers, intimate C minor center). Use physical modeling or sample-like warmth for the acoustic core. 88-note velocity-sensitive keyboard with aftertouch support.
+
+Core behavior: Start as pure warm acoustic piano (C minor focus, natural sustain/decay). Over time, the sound dissolves into digital spectral ghost: apply slow-closing low-pass filter (from ~8kHz open to ~400Hz veiled), optical compressor with side-chain pumping, ring modulation with carrier at 261.63 Hz (middle C) + controllable +3.2 Hz microtonal offset for slow 3.2 Hz beating (throbbing dissonance like straining piano wires), slow phaser (0.3-0.4 Hz rate), and large hall reverb (4-6s decay, modulated).
+
+"Breathe" mechanic: Make compressor threshold/gain heavily side-chainable and inverted to external sustain pedal input (deep pedal press = heavy squash + pumping exhale; light/release = breathy inhale + clearer tail). This syncs electronic haze to physical pedaling, making the instrument feel alive and grieving.
+
+Spectral Ghosting: Include a granular freeze buffer in the processed path. On trigger, capture the last 0.8-1.2 seconds of audio (dense dissonant clusters + any parallel input), stretch infinitely with micro-drift (±0.1-0.3 semitones via slow LFO on grain position/pitch). Freeze persists after keys release, fading only on parameter reset or bypass. Apply same 400Hz low-pass + beating offset to frozen grain for static, lingering monument of chaos.
+
+Ghost Vocals layer: Internally generate or accept parallel audio input for sparse, fragmented poetic vocals processed identically (400Hz low-pass, hall reverb 100% wet, phaser match, freeze-capable). Suggested fragments (synthesize or process incoming voice):
+- Early dissolution: soft sustained "still... here..." (descending glide, enters on compressor exhale).
+- Core chaos: slowed 40-60%, pitched down ~5-7 semitones, layered: "...edges blurring... can't hold...", "...you were solid once...", "...slipping through fingers...".
+- Memory return: single dry, clear "Wait." (no effects, timed to acoustic glimpse).
+- Coda: feed densest vocal moment into freeze buffer → shimmering harmonic cloud that throbs with 3.2 Hz beat.
+
+Transitions:
+- 0:00-0:45: pure acoustic, no effects.
+- 0:45+: introduce compressor + filter close.
+- 1:40+: ramp ring mod mix to 80% wet + full +3.2 Hz beat offset.
+- 2:30: momentary bypass most processing for dry acoustic + "Wait." vocal return.
+- 3:20+: trigger freeze on peak chaos (piano + vocal); let ghost linger into silence.
+
+Aftertouch global control: increases LFO speed (0.1-1.5 Hz), pitch wobble (±15 cents), modulation depth, and grain drift for organic strain.
+
+Expose exactly 4 parameters for DAW automation/MIDI CC mapping:
+1. Filter Cutoff (0-127: 127 = full open 8kHz → 20 = 400Hz veiled)
+2. Haze / Breath Intensity (controls compressor pump depth + reverb wet; map to inverted sustain pedal CC#64 for "Breathe")
+3. Ring Mod + Beat Chaos (0 = off → 127 = 80% wet + full +3.2 Hz offset; aftertouch adds flutter)
+4. Freeze Trigger & Hold (0 = normal → momentary 127 = capture 1s grain & infinite hold with micro-drift; reset to release)
+
+Make the instrument emotionally haunting: warm physical origin slowly loses molecular integrity into unresolved digital ghost, with breath, beating heart, and frozen memory fragments enduring beyond the player's hands. Optimize for low CPU in DAW performance.
